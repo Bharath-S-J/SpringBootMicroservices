@@ -1,0 +1,47 @@
+<nav class="bg-white border border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 rounded-lg dark:bg-gray-800 shadow-md">
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+
+    <!-- Logo -->
+    <a href="/" class="flex items-center">
+      <span class="self-center text-xl font-semibold whitespace-nowrap text-gray-900 dark:text-white">
+        Spring Boot Microservices Shop
+      </span>
+    </a>
+
+    <!-- Menu Button (Mobile) -->
+    <button id="menu-toggle" type="button"
+            class="inline-flex items-center p-2 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200
+            dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+            (click)="toggleMenu()">
+      <span class="sr-only">Open main menu</span>
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <!-- Desktop & Mobile Menu -->
+    <div [ngClass]="{'hidden': !menuOpen, 'block': menuOpen}" class="w-full md:flex md:items-center md:w-auto" id="mobile-menu">
+      <ul class="flex flex-col md:flex-row md:space-x-6 md:items-center mt-4 md:mt-0">
+        <li *ngIf="isAuthenticated; else loginTemplate">
+          <span class="text-blue-600 font-medium block md:inline text-center">{{ username }}</span>
+          <button
+            (click)="logout()"
+            class="mt-2 md:mt-0 ml-0 md:ml-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition w-full md:w-auto">
+            Logout
+          </button>
+        </li>
+
+        <!-- Login Button (Shown when NOT authenticated) -->
+        <ng-template #loginTemplate>
+          <li>
+            <button
+              (click)="login()"
+              class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition w-full md:w-auto">
+              Login
+            </button>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>
