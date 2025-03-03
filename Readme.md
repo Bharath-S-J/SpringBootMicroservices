@@ -23,7 +23,6 @@ The technologies used in this project:
 - **MySQL**  
 - **Kafka**  
 - **Keycloak**  
-- **Test Containers** with WireMock  
 - **Grafana Stack** (Prometheus, Grafana, Loki, and Tempo)  
 - **API Gateway** (Spring Cloud Gateway MVC)  
 
